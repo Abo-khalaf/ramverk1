@@ -57,10 +57,4 @@ class JsonValidateTest extends TestCase
             "Domain" => $object->getDomain("193.11.187.229") ?? null,
         ], $res);
     }
-
-
-
-
-
-
 }

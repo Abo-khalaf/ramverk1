@@ -7,7 +7,7 @@ return [
         [
             "info" => "Ip controller.",
             "mount" => "ip",
-            "handler" => "Moody\Controller\jsonController",
+            "handler" => "Moody\Controller\JsonController",
         ],
     ]
 ];

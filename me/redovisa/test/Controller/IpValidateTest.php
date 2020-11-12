@@ -72,6 +72,4 @@ class IpValidateTest extends TestCase
         $res = $this->controller->getProtocol("2001:6b0:2a:c280:4c64:5ef8:f1da:a924");
         $this->assertContains("IPv6", $res);
     }
-
-
 }
