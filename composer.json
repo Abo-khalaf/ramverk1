@@ -1,20 +1,17 @@
 {
-    "name" : "dbwebb/ramverk1",
-    "description": "Course material for ramverk1.",
-    "homepage": "https://github.com/dbwebb-se/ramverk1",
+    "name" : "anax/noname",
+    "description": "A me page for the ramverk1 course.",
     "license": "MIT",
-    "keywords": ["dbwebb", "education", "course"],
-    "authors": [
-        {
-            "name": "Mikael Roos",
-            "email": "mos@dbwebb.se"
-        }
-    ],
-    "support": {
-        "issues": "https://github.com/dbwebb-se/ramverk1/issues",
-        "source": "https://github.com/dbwebb-se/ramverk1"
+    "minimum-stability": "beta",
+    "prefer-stable": true,
+    "autoload": {
+        "psr-4": {"Anax\\": "src/",
+                    "Moody\\": "src/"}
     },
     "require": {
-        "php": "^7.2"
+        "anax/anax-ramverk1-me": "^1.0.0"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^7"
     }
 }

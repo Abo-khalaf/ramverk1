@@ -1,13 +1,5 @@
-bin/
-build/
-.venv/
-vendor/
-node_modules/
-package-lock.json
+/.bin
+/build
+/vendor
+memory::
 composer.lock
-
-__pycache__
-*.pyc
-
-# Mac OS
-.DS_Store
