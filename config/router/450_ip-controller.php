@@ -5,9 +5,9 @@
 return [
     "routes" => [
         [
-            "info" => "Ip controller.",
+            "info" => "Ip controller(JSON).",
             "mount" => "ip",
-            "handler" => "Moody\Controller\JsonController",
+            "handler" => "Moody\ControllerIP\JsonController",
         ],
     ]
 ];

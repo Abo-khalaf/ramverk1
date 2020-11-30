@@ -1,5 +1,5 @@
 <?php
-namespace Moody\Controller;
+namespace Moody\ControllerIP;
 
 use Anax\Commons\ContainerInjectableInterface;
 use Anax\Commons\ContainerInjectableTrait;
@@ -25,16 +25,6 @@ class IpController implements ContainerInjectableInterface
     private $object;
 
 
-    // /**
-    //  * @var string $db a sample member variable that gets initialised
-    //  */
-    // private $db = "not active";
-    // public function initialize() : void
-    // {
-    //     // Use to initialise member variables.
-    //     $this->db = "active";
-    // }
-
     public function result($ipAddress, $object) : string
     {
         if ($object->getProtocol($ipAddress)) {
@@ -48,19 +38,29 @@ class IpController implements ContainerInjectableInterface
         // Deal with the action and return a response.
         $protocol =  null;
         $host = null;
-        $title = "Ip validator";
+        $address = null;
 
+        $title = "Ip validator";
         $page = $this->di->get("page");
         $request = $this->di->get("request");
         $this->ipAddress = $request->getGet("ip");
+        $ip = $this->ipAddress;
 
         $this->object = new IpValidate();
         $protocol = $this->result($this->ipAddress, $this->object);
         $host = $this->object->getDomain($this->ipAddress);
+        $address = $this->object->getAddress($this->ipAddress);
+        $ip = $this->object->getCurrentIp($this->ipAddress);
+        $Domain = $this->object->getDomain($this->ipAddress);
 
-        // $page = $this->di->get("page");
+
+        $data["ip"] = $ip;
         $data["protocol"] = $protocol;
         $data["host"] = $host;
+        $data["address"] = $address;
+        $data["Domain"] = $Domain;
+
+
         $page->add("id/index", $data);
         return $page->render([
             "title" => $title,

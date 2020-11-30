@@ -1,6 +1,6 @@
 <?php
 
-namespace Moody\Controller;
+namespace Moody\ControllerIP;
 
 use Anax\Commons\ContainerInjectableInterface;
 use Anax\Commons\ContainerInjectableTrait;
@@ -45,18 +45,45 @@ class IpValidate implements ContainerInjectableInterface
         }
         return false;
     }
-
         /**
-     * Check if IP is valid or not.
-     * GET  domain
-     *
-     * @return string
-     */
-    public function getDomain($ipAddress)
+    * Check if IP is valid or not.
+    * GET  domain
+    *
+    * @return string
+    */
+   public function getDomain($ipAddress)
+   {
+       if (filter_var($ipAddress, FILTER_VALIDATE_IP)) {
+           return gethostbyaddr($ipAddress);
+       }
+       return "Not valid";
+   }
+
+   public function getCurrentIp()
+   {
+       return $_SERVER["193.11.187.229"] ?? '193.11.187.229';
+   }
+
+
+
+    public function getAddress($ipAddress) 
     {
-        if (filter_var($ipAddress, FILTER_VALIDATE_IP)) {
-            return gethostbyaddr($ipAddress);
-        }
-        return "Not valid";
+        $the_access_key = "9ffbd83fca588b355bff399b8da7526f";
+        $theUrl  = "http://api.ipstack.com/";
+        $req = curl_init($theUrl . $ipAddress . "?access_key=" . $the_access_key . '');
+        curl_setopt($req, CURLOPT_RETURNTRANSFER, true);
+        $json = curl_exec($req);
+        curl_close($req);
+        $result = json_decode($json, 'JAON_PRETTY_PRINT');
+        return $result;
+
     }
+
 }
+
+
+
+
+//         $locatin = "http://api.ipstack.com/{$ipAddress}?access_key=9ffbd83fca588b355bff399b8da7526f";
+
+

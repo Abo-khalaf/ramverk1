@@ -1,6 +1,6 @@
 <?php
 
-namespace Moody\Controller;
+namespace Moody\ControllerIP;
 
 use Anax\Commons\ContainerInjectableInterface;
 use Anax\Commons\ContainerInjectableTrait;
@@ -25,13 +25,24 @@ class JsonController implements ContainerInjectableInterface
     public function indexAction() : object
     {
         $title = "Check IP with (JSON)";
+
         $page = $this->di->get("page");
         $request = $this->di->get("request");
         $json = null;
         $this->ipAddress = $request->getGet("ip");
         $this->object = new IpValidate();
+        
+        $ip = $this->ipAddress;
+        $ip = $this->object->getCurrentIp($this->ipAddress);
+        $Domain = $this->object->getDomain($this->ipAddress);
+
+
+
         $json = $this->ipJson($this->ipAddress, $this->object);
         $data['json'] = $json;
+        $data["ip"] = $ip;
+        $data["Domain"] = $Domain;
+
         $page->add("id/json", $data);
         return $page->render([
             "title" => $title,
@@ -42,10 +53,17 @@ class JsonController implements ContainerInjectableInterface
     public function ipJson($ipAddress, $object) : array
     {
         $json = [
-            "Ip" => $ipAddress,
+            "ip" => $ipAddress,
+            // "ip" => $ip,
+
             "Protocol" => $object->getProtocol($ipAddress) ?? null,
             "Domain" => $object->getDomain($ipAddress) ?? null,
+            "address" => $object->getAddress($ipAddress) ?? null,
+            // "address" => $object->getCurrentIp($ipAddress) ?? null   
+
+
         ];
         return [$json];
     }
 }
+

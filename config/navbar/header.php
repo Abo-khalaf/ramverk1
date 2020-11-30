@@ -49,12 +49,12 @@ return [
             "title" => "Verktyg och möjligheter för utveckling.",
         ],
         [
-            "text" => "Id controller",
+            "text" => "IP controlle",
             "url" => "ips",
             "title" => "Verktyg och möjligheter för utveckling.",
         ],
         [
-            "text" => "Ip controller",
+            "text" => "IP controller(JSON)",
             "url" => "ip",
             "title" => "Verktyg och möjligheter för utveckling.",
         ],

@@ -1,15 +1,30 @@
+
+<br>
+<br>
 <h1>Validate IP address {JSON}</h1>
-<form class="form-signin" method="get">
-    <div >
-            <input type="text" name="ip" placeholder="Your IP" required>
-    </div>
-    <button class="pl1"  type="submit">Validate</button>
-</form>
+<br>
 
 
+<a style="float: right;" href="http://localhost:8080/dbwebb/ramverk1/me/redovisa/htdocs/"><button class="pl1">Back</button></a>
+       
+<br>
+    <?php if(!isset($_GET["ip"])) : ?>
+        <form method="get" action="" >
+            <div>
+                  <input id="ip" type="text" name="ip" value="<?=$ip?>" required>
+            </div>
+            <div  role="onchange">
+              The default IP address
+            </div>
+            <button class="pl1" type="submit">Validate</button>
+    <?php endif; ?>
+    </form>
+    <?php if(isset($_GET["ip"]) && $Domain != "Not valid") : ?>
             <?php
-            if (isset($_GET["ip"])) {
+            // if (isset($_GET["ip"])) {
                 echo json_encode($json, JSON_PRETTY_PRINT);
-            }
+            // }
             ?>
-    
+            <?php elseif (isset($_GET["ip"]) && ($Domain == "Not valid")) :   ?>
+            <h2 style="color:red;">This Ip is Not Found</h2> 
+            <?php endif; ?> 

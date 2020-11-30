@@ -1,6 +1,6 @@
 <?php
 
-namespace Moody\Controller;
+namespace Moody\ControllerIP;
 
 use Anax\DI\DIFactoryConfig;
 use PHPUnit\Framework\TestCase;

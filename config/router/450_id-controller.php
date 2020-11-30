@@ -5,9 +5,9 @@
 return [
     "routes" => [
         [
-            "info" => "Id controller.",
+            "info" => "IP controller.",
             "mount" => "ips",
-            "handler" => "Moody\Controller\IpController",
+            "handler" => "Moody\ControllerIP\IpController",
         ],
     ]
 ];
