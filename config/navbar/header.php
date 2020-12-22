@@ -58,6 +58,12 @@ return [
             "url" => "ip",
             "title" => "Verktyg och möjligheter för utveckling.",
         ],
+        [
+            "text" => "weather",
+            "url" => "weather",
+            "title" => "Verktyg och möjligheter för utveckling.",
+        ],
+
         
     ],
 ];

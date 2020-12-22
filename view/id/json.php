@@ -9,6 +9,10 @@
        
 <br>
     <?php if(!isset($_GET["ip"])) : ?>
+    <form action="json-ip" method="GET">
+                <input name="ip" type="hidden" value="194.47.150.9">
+                <input type="submit" value="Test IP 2">
+            </form>
         <form method="get" action="" >
             <div>
                   <input id="ip" type="text" name="ip" value="<?=$ip?>" required>

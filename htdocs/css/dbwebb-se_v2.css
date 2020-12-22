@@ -6935,6 +6935,11 @@ a.rm-button.rm-clicked .rm-button-face-2 {
   border-top: 1px solid #ccc;
   background-image: linear-gradient(to right, #fff, #ccc);
 }
+
+.temp {
+  /* float: left; */
+  margin-left: 40%;
+}
 /**
  * My settings.
  */
