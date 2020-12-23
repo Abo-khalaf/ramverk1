@@ -84,23 +84,23 @@ class IpValidate implements ContainerInjectableInterface
     *
     * @return string
     */
-   public function getDomain($ipAddress)
-   {
-       if (filter_var($ipAddress, FILTER_VALIDATE_IP)) {
-           return gethostbyaddr($ipAddress);
-       }
-       return "Not valid";
-   }
+    public function getDomain($ipAddress)
+    {
+        if (filter_var($ipAddress, FILTER_VALIDATE_IP)) {
+            return gethostbyaddr($ipAddress);
+        }
+        return "Not valid";
+    }
 
 
-   public function getCurrentIp()
-   {
-       return $_SERVER["193.11.187.229"] ?? '193.11.187.229';
-   }
+    public function getCurrentIp()
+    {
+        return $_SERVER["193.11.187.229"] ?? '193.11.187.229';
+    }
 
 
 
-    public function getAddress($ipAddress) 
+    public function getAddress($ipAddress)
     {
         $the_access_key = "9ffbd83fca588b355bff399b8da7526f";
         $theUrl  = "http://api.ipstack.com/";
@@ -110,10 +110,9 @@ class IpValidate implements ContainerInjectableInterface
         curl_close($req);
         $result = json_decode($json, 'JAON_PRETTY_PRINT');
         return $result;
-
     }
 
-    public function setWeather($latitude ,$longitude) : void
+    public function setWeather($latitude, $longitude) : void
     {
         $options = '&exclude=current,minutely,hourly,alerts&units=metric&lang=en';
         $baseUrl = 'https://api.openweathermap.org/data/2.5/onecall?';
@@ -123,7 +122,7 @@ class IpValidate implements ContainerInjectableInterface
             $longitude . $options .  '&appid=' . $this->message;
     }
 
-    public function getWeather() 
+    public function getWeather()
     {
         return  $this->weatherAPI_next;
     }
@@ -169,7 +168,7 @@ class IpValidate implements ContainerInjectableInterface
      * into the controller.
      *
      */
-    public function setWeather2($latitude ,$longitude) : void
+    public function setWeather2($latitude, $longitude) : void
     {
         $the_access_key = "7baa582f6085fc9b4bcfbaceac7ff994";
 
@@ -184,19 +183,10 @@ class IpValidate implements ContainerInjectableInterface
     }
 
 
-    public function getWeather2() 
+    public function getWeather2()
     {
         return  $this->weatherApiArr;
     }
-
-
-
-
-
-
-
-    
-
 
     public function getDataArray(array $urls)
     {
@@ -238,8 +228,5 @@ class IpValidate implements ContainerInjectableInterface
             $response[] = json_decode($data, true);
         }
         return $response;
-
     }
-
-
 }

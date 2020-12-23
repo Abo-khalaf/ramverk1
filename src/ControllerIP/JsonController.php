@@ -59,11 +59,7 @@ class JsonController implements ContainerInjectableInterface
             "Protocol" => $object->getProtocol($ipAddress) ?? null,
             "Domain" => $object->getDomain($ipAddress) ?? null,
             "address" => $object->getAddress($ipAddress) ?? null,
-            // "address" => $object->getCurrentIp($ipAddress) ?? null   
-
-
         ];
         return [$json];
     }
 }
-

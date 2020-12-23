@@ -14,8 +14,10 @@ use PHPUnit\Framework\TestCase;
  *
  * @SuppressWarnings(PHPMD.TooManyPublicMethods)
  */
-class JsonValidateTest extends TestCase
+class IpControllerTest extends TestCase
 {
+    // use ContainerInjectableTrait;
+
     protected $di;
     protected $controller;
 
@@ -34,27 +36,29 @@ class JsonValidateTest extends TestCase
         $di = $this->di;
 
         // Setup the controller
-        $this->controller = new JsonController();
+        $this->controller = new IpController();
         $this->controller->setDI($this->di);
         //$this->controller->initialize();
     }
 
 
-    public function testIndexAction2()
+
+    /**
+    *Call the Controller inedex action
+    */
+    public function testIndexAction()
     {
         $res = $this->controller->indexAction();
         $this->assertInternalType("object", $res);
     }
 
-    public function testipJson()
+
+
+
+    public function testGetProtocolResultTrue()
     {
         $object = new IpValidate();
-        $res = $this->controller->ipJson("193.11.187.229", $object);
-        $this->assertInternalType("array", $res);
-        // $this->assertContains([
-        //     "Ip" => "193.11.187.229",
-        //     "Protocol" => $object->getProtocol("193.11.187.229") ?? null,
-        //     "Domain" => $object->getDomain("193.11.187.229") ?? null,
-        // ], $res);
+        $res = $this->controller->Result("186.151.62.176", $object);
+        $this->assertInternalType("string", $res);
     }
 }

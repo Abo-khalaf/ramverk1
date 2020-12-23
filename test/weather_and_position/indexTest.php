@@ -1,6 +1,6 @@
 <?php
 
-namespace Moody\ControllerIP;
+namespace Moody\weather_and_position;
 
 use Anax\DI\DIFactoryConfig;
 use PHPUnit\Framework\TestCase;
@@ -14,7 +14,7 @@ use PHPUnit\Framework\TestCase;
  *
  * @SuppressWarnings(PHPMD.TooManyPublicMethods)
  */
-class JsonValidateTest extends TestCase
+class indexTest extends TestCase
 {
     protected $di;
     protected $controller;
@@ -34,7 +34,7 @@ class JsonValidateTest extends TestCase
         $di = $this->di;
 
         // Setup the controller
-        $this->controller = new JsonController();
+        $this->controller = new indexs();
         $this->controller->setDI($this->di);
         //$this->controller->initialize();
     }
@@ -46,15 +46,4 @@ class JsonValidateTest extends TestCase
         $this->assertInternalType("object", $res);
     }
 
-    public function testipJson()
-    {
-        $object = new IpValidate();
-        $res = $this->controller->ipJson("193.11.187.229", $object);
-        $this->assertInternalType("array", $res);
-        // $this->assertContains([
-        //     "Ip" => "193.11.187.229",
-        //     "Protocol" => $object->getProtocol("193.11.187.229") ?? null,
-        //     "Domain" => $object->getDomain("193.11.187.229") ?? null,
-        // ], $res);
-    }
 }

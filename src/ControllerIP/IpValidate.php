@@ -51,22 +51,22 @@ class IpValidate implements ContainerInjectableInterface
     *
     * @return string
     */
-   public function getDomain($ipAddress)
-   {
-       if (filter_var($ipAddress, FILTER_VALIDATE_IP)) {
-           return gethostbyaddr($ipAddress);
-       }
-       return "Not valid";
-   }
+    public function getDomain($ipAddress)
+    {
+        if (filter_var($ipAddress, FILTER_VALIDATE_IP)) {
+            return gethostbyaddr($ipAddress);
+        }
+        return "Not valid";
+    }
 
-   public function getCurrentIp()
-   {
-       return $_SERVER["193.11.187.229"] ?? '193.11.187.229';
-   }
+    public function getCurrentIp()
+    {
+        return $_SERVER["193.11.187.229"] ?? '193.11.187.229';
+    }
 
 
 
-    public function getAddress($ipAddress) 
+    public function getAddress($ipAddress)
     {
         $the_access_key = "9ffbd83fca588b355bff399b8da7526f";
         $theUrl  = "http://api.ipstack.com/";
@@ -76,14 +76,5 @@ class IpValidate implements ContainerInjectableInterface
         curl_close($req);
         $result = json_decode($json, 'JAON_PRETTY_PRINT');
         return $result;
-
     }
-
 }
-
-
-
-
-//         $locatin = "http://api.ipstack.com/{$ipAddress}?access_key=9ffbd83fca588b355bff399b8da7526f";
-
-

@@ -14,7 +14,7 @@ use PHPUnit\Framework\TestCase;
  *
  * @SuppressWarnings(PHPMD.TooManyPublicMethods)
  */
-class JsonValidateTest extends TestCase
+class JsonIPValidateTest extends TestCase
 {
     protected $di;
     protected $controller;
@@ -34,27 +34,34 @@ class JsonValidateTest extends TestCase
         $di = $this->di;
 
         // Setup the controller
-        $this->controller = new JsonController();
+        $this->controller = new JsonIpValidatorController1();
         $this->controller->setDI($this->di);
         //$this->controller->initialize();
     }
 
 
-    public function testIndexAction2()
+    public function testIndexAction()
     {
         $res = $this->controller->indexAction();
-        $this->assertInternalType("object", $res);
+        $this->assertInternalType("array", $res);
+    }
+    public function testIndexAction2()
+    {
+        $res = $this->controller->jsonIpActionGet();
+        $this->assertInternalType("array", $res);
     }
 
-    public function testipJson()
+
+    public function ipToJson()
     {
         $object = new IpValidate();
         $res = $this->controller->ipJson("193.11.187.229", $object);
         $this->assertInternalType("array", $res);
-        // $this->assertContains([
-        //     "Ip" => "193.11.187.229",
-        //     "Protocol" => $object->getProtocol("193.11.187.229") ?? null,
-        //     "Domain" => $object->getDomain("193.11.187.229") ?? null,
-        // ], $res);
+        $this->assertContains([
+            "Ip" => "193.11.187.229",
+            "Protocol" => $object->getProtocol("193.11.187.229") ?? null,
+            "Domain" => $object->getDomain("193.11.187.229") ?? null,
+        ], $res);
     }
+
 }

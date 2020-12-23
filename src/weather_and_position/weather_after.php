@@ -60,7 +60,7 @@ class weather_after implements ContainerInjectableInterface
         $this->openWeatherMapModel = $this->di->get("openWeatherMap");
         $this->object->getDetails();
         
-        foreach($this->openWeatherMapModel as $key=>$value): 
+        foreach ($this->openWeatherMapModel as $key => $value) :
             $this->object->setMessage($value);
         endforeach;
 
@@ -70,7 +70,6 @@ class weather_after implements ContainerInjectableInterface
         $address = $this->object->getAddress($this->ipAddress);
         $latitude =  $address["latitude"] ??null;
         $longitude = $address["longitude"] ??null;
-
         
         
         $weatherSet = $this->object->setWeather($latitude, $longitude);
@@ -78,8 +77,6 @@ class weather_after implements ContainerInjectableInterface
         
         $weatherGet = $this->object->getWeather();
         // $weatherGet2 = $this->object->getWeather2();
-        
-
         $getData = $this->object->getData($weatherGet);
         // $getDataArray = $this->object->getDataArray($weatherGet2);
 
@@ -105,7 +102,7 @@ class weather_after implements ContainerInjectableInterface
         // $data["getDataArray"] = $getDataArray;
 
 
-        // var_dump($getDataArray);
+        // var_dump($getData);
 
 
 
@@ -124,10 +121,7 @@ class weather_after implements ContainerInjectableInterface
             "Protocol" => $object->getProtocol($ipAddress) ?? null,
             "Domain" => $object->getDomain($ipAddress) ?? null,
             "address" => $object->getData($this->object->getWeather()) ?? null
-            // "address" => $object->getCurrentIp($ipAddress) ?? null   
         ];
         return [$json];
     }
-
-
 }

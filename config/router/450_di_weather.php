@@ -7,7 +7,7 @@ return [
         [
             "info" => "weather",
             "mount" => "weather",
-            "handler" => "Moody\weather_and_position\index",
+            "handler" => "Moody\weather_and_position\indexs",
         ],
     ]
 ];

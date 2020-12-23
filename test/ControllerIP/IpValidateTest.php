@@ -40,23 +40,8 @@ class IpValidateTest extends TestCase
     }
 
 
-    // public function testIndexAction2()
-    // {
-    //     $res = $this->controller->indexAction();
-    //     $this->assertInternalType("object", $res);
-    // }
 
-    // public function testipJson()
-    // {
-    //     $object = new IpValidate();
-    //     $res = $this->controller->ipJson("193.11.187.229", $object);
-    //     $this->assertInternalType("array", $res);
-    //     $this->assertContains([
-    //         "Ip" => "193.11.187.229",
-    //         "Protocol" => $object->getProtocol("193.11.187.229") ?? null,
-    //         "Domain" => $object->getDomain("193.11.187.229") ?? null,
-    //     ], $res);
-    // }
+
 
     public function testgetProtocol()
     {

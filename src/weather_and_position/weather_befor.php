@@ -58,7 +58,7 @@ class weather_befor implements ContainerInjectableInterface
         $this->openWeatherMapModel = $this->di->get("openWeatherMap");
 
 
-        foreach($this->openWeatherMapModel as $key=>$value): 
+        foreach ($this->openWeatherMapModel as $key => $value) :
             $this->object->setMessage($value);
         endforeach;
 

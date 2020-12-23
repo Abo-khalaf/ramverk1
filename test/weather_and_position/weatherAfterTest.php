@@ -1,6 +1,6 @@
 <?php
 
-namespace Moody\ControllerIP;
+namespace Moody\weather_and_position;
 
 use Anax\DI\DIFactoryConfig;
 use PHPUnit\Framework\TestCase;
@@ -14,7 +14,7 @@ use PHPUnit\Framework\TestCase;
  *
  * @SuppressWarnings(PHPMD.TooManyPublicMethods)
  */
-class JsonValidateTest extends TestCase
+class weather_afterTest extends TestCase
 {
     protected $di;
     protected $controller;
@@ -27,34 +27,32 @@ class JsonValidateTest extends TestCase
     {
         global $di;
 
-        // Setup di
+
         $this->di = new DIFactoryConfig();
         $this->di->loadServices(ANAX_INSTALL_PATH . "/config/di");
-
+        $di->get("cache")->setPath(ANAX_INSTALL_PATH . "/test/cache");
         $di = $this->di;
 
         // Setup the controller
-        $this->controller = new JsonController();
+        $this->controller = new weather_after();
         $this->controller->setDI($this->di);
         //$this->controller->initialize();
     }
 
-
-    public function testIndexAction2()
+    public function testResult()
     {
         $res = $this->controller->indexAction();
         $this->assertInternalType("object", $res);
     }
 
-    public function testipJson()
+
+
+
+
+    public function testGetProtocolResultTrue()
     {
         $object = new IpValidate();
-        $res = $this->controller->ipJson("193.11.187.229", $object);
-        $this->assertInternalType("array", $res);
-        // $this->assertContains([
-        //     "Ip" => "193.11.187.229",
-        //     "Protocol" => $object->getProtocol("193.11.187.229") ?? null,
-        //     "Domain" => $object->getDomain("193.11.187.229") ?? null,
-        // ], $res);
+        $res = $this->controller->Result("186.151.62.176", $object);
+        $this->assertInternalType("string", $res);
     }
 }
