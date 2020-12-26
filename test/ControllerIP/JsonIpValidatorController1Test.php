@@ -14,7 +14,7 @@ use PHPUnit\Framework\TestCase;
  *
  * @SuppressWarnings(PHPMD.TooManyPublicMethods)
  */
-class JsonIPValidateTest extends TestCase
+class JsonIpValidatorController1Test extends TestCase
 {
     protected $di;
     protected $controller;
@@ -27,10 +27,10 @@ class JsonIPValidateTest extends TestCase
     {
         global $di;
 
-        // Setup di
+
         $this->di = new DIFactoryConfig();
         $this->di->loadServices(ANAX_INSTALL_PATH . "/config/di");
-
+        $di->get("cache")->setPath(ANAX_INSTALL_PATH . "/test/cache");
         $di = $this->di;
 
         // Setup the controller
@@ -40,28 +40,28 @@ class JsonIPValidateTest extends TestCase
     }
 
 
-    public function testIndexAction()
+    public function testResult()
     {
         $res = $this->controller->indexAction();
         $this->assertInternalType("array", $res);
     }
-    public function testIndexAction2()
+
+
+
+
+    public function testResult2()
     {
         $res = $this->controller->jsonIpActionGet();
         $this->assertInternalType("array", $res);
     }
 
 
-    public function ipToJson()
+    public function testipJson()
     {
         $object = new IpValidate();
-        $res = $this->controller->ipJson("193.11.187.229", $object);
+        $res = $this->controller->ipToJson("193.11.187.229", $object);
         $this->assertInternalType("array", $res);
-        $this->assertContains([
-            "Ip" => "193.11.187.229",
-            "Protocol" => $object->getProtocol("193.11.187.229") ?? null,
-            "Domain" => $object->getDomain("193.11.187.229") ?? null,
-        ], $res);
+
     }
 
 }

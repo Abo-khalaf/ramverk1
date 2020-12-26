@@ -9,7 +9,8 @@
                     "Moody\\": "src/"}
     },
     "require": {
-        "anax/anax-ramverk1-me": "^1.0.0"
+        "anax/anax-ramverk1-me": "^1.0.0",
+        "muhamed/weather_package": "^1.1"
     },
     "require-dev": {
         "phpunit/phpunit": "^7"
