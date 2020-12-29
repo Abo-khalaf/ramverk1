@@ -1,11 +1,11 @@
-O:8:"stdClass":7:{s:4:"file";s:21:"block/footer-col-2.md";s:7:"section";s:0:"";s:5:"level";i:0;s:8:"internal";b:1;s:7:"tocable";b:0;s:5:"views";a:1:{s:4:"main";a:2:{s:8:"template";s:23:"anax/v2/article/default";s:4:"data";a:2:{s:7:"content";s:240:"<h4>Kurs</h4>
+O:8:"stdClass":7:{s:4:"file";s:21:"block/footer-col-2.md";s:7:"section";s:0:"";s:5:"level";i:0;s:8:"internal";b:1;s:7:"tocable";b:0;s:5:"views";a:1:{s:4:"main";a:2:{s:8:"template";s:23:"anax/v2/article/default";s:4:"data";a:2:{s:7:"content";s:265:"<h4>Kurs</h4>
 
-<p>this is Ramverk1 cours and kmom01</p>
+<p>this is Ramverk1 cours and kmom01, kmom2, kmom3 and kmom04</p>
 
 <p><a href="#"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTfvczLrPCr-sR2pANoU5NjErH6JYgbkjUEhQ&usqp=CAU" alt="alt text" width="50px" height="whatever"></a></p>
-";s:7:"excerpt";s:240:"<h4>Kurs</h4>
+";s:7:"excerpt";s:265:"<h4>Kurs</h4>
 
-<p>this is Ramverk1 cours and kmom01</p>
+<p>this is Ramverk1 cours and kmom01, kmom2, kmom3 and kmom04</p>
 
 <p><a href="#"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTfvczLrPCr-sR2pANoU5NjErH6JYgbkjUEhQ&usqp=CAU" alt="alt text" width="50px" height="whatever"></a></p>
 ";}}}s:11:"frontmatter";a:1:{s:5:"title";s:4:"Kurs";}}
