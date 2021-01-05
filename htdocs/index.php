@@ -21,6 +21,7 @@ $di->loadServices(ANAX_INSTALL_PATH . "/config/di");
 //     \Anax\Proxy\ProxyDIFactory::init($di);
 // }
 
+
 // Send the response that the router returns from the route handler
 $di->get("response")->send(
     $di->get("router")->handle(
