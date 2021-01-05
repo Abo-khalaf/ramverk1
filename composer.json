@@ -10,7 +10,9 @@
     },
     "require": {
         "anax/anax-ramverk1-me": "^1.0.0",
+        "anax/remserver": "^2.1",
         "muhamed/weather_package": "^1.1",
+        "anax/database-query-builder": "^2.0",
         "anax/htmlform": "^2.0",
         "anax/database-active-record": "^2.0"
     },
