@@ -5,8 +5,8 @@
 return [
     "routes" => [
         [
-            "info" => "Book",
-            "mount" => "Book",
+            "info" => "book",
+            "mount" => "book",
             "handler" => "Moody\Books\ControllBooks",
         ],
     ]

@@ -16,9 +16,9 @@
 
 if ($_SERVER["SERVER_NAME"] === "www.student.bth.se") {
     return [
-        "dsn"             => "mysql:host=blu-ray.student.bth.se;dbname=baaa19;",
+        "dsn"             => "mysql:host=blu-ray.student.bth.se;dbname=muab19;",
         "username"        => "muab19",
-        "password"        => "",
+        "password"        => "vmCKDVp43w6K",
         "driver_options"  => [
             \PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES 'UTF8'"
         ],
@@ -34,9 +34,9 @@ if ($_SERVER["SERVER_NAME"] === "www.student.bth.se") {
 
 
 return [
-    "dsn"             => "mysql:host=127.0.0.1;dbname=ramverk1;",
+    "dsn"             => "mysql:host=127.0.0.1;dbname=library;",
     "username"        => "user",
-    "password"        => "pass",
+    "password"        => "1234",
     "driver_options"  => [
         \PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES 'UTF8'"
     ],

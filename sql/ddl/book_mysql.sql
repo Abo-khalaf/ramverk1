@@ -30,9 +30,11 @@ SET NAMES utf8;
 --
 -- Table Book
 --
-DROP TABLE IF EXISTS books;
-CREATE TABLE books (
+DROP TABLE IF EXISTS book;
+CREATE TABLE book (
     `id` INTEGER PRIMARY KEY AUTO_INCREMENT NOT NULL,
     `title` VARCHAR(80) NOT NULL,
-    `author` VARCHAR(80) NOT NULL
+    `author` VARCHAR(80) NOT NULL,
+    `image` VARCHAR(80) NOT NULL
+
 ) ENGINE INNODB CHARACTER SET utf8 COLLATE utf8_swedish_ci;
