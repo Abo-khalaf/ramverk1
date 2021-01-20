@@ -37,16 +37,60 @@
                     <td id="ip"><?=$address["ip"]?></td>
                 </tr>
 
-                <?php foreach($getData["daily"] as $key=>$value): ?>
-                    <tr>
-                        <th  scope="row">temp Day: </th>
-                        <td id="ip"><?=$value['temp']['day']?></td>
-                    </tr>
-                <?php endforeach; ?>
 
                 </tbody>
             </thead>
         </table>
+
+
+        <table>
+            <thead>
+            <br>
+
+                <tr>
+                    <th>
+                        <?php foreach($getData["daily"] as $key=>$value): ?>
+                            <td style="padding: 16px;"> <h4><?=$value['temp']['day']?></h4> </td>
+                        <?php endforeach; ?>
+                    </th>
+                </tr>
+                </tbody>
+            </thead>
+        </table>
+                        <div class="weather-icon-next">
+                            <?php foreach ($arrIconNext as $key1 => $value1) : ?>
+                                <img style="width:75px;" src="https://openweathermap.org/img/wn/<?= $value1 ?>@2x.png"</img>
+                            <?php endforeach; ?>
+                        </div>
+
+
+                        <div class="weather-date-next">
+                <div><td style="padding: 16px;"> <h4><?= implode(" ,   ", $dateArrayNext) ?></h4></div>
+                </div>
+                </div>
+
+            <br>
+            <br>
+            <br>
+
+
+                        <div hidden><?= include 'map.php'; ?></div>
+        <h3 scope="row">Position On Map</h3>
+        <div id="map" style="width: 800px; height: 450px;margin-bottom:10px;"></div>
+
+
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css"/>
+
+    <?php elseif (isset($_GET["ip"]) && ($Domain == "Not valid")) :   ?>
+
+            <h2 style="color:red;">This Ip is Not Found</h2> 
+            <?php endif; ?> 
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous"><script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+        <br>
+            <br>
+            <br>
 
         <?php if(isset($_GET["ip"]) && $Domain != "Not valid") : ?>
             <?php
@@ -58,19 +102,3 @@
             <h2 style="color:red;">This Ip is Not Found</h2> 
             <?php endif; ?> 
 
-
-
-        <div hidden><?= include 'map.php'; ?></div>
-        <h3 scope="row" style="text-align:center;">Position On Map</h3>
-        <div id="map" style="width: 800px; height: 450px;margin-bottom:10px;"></div>
-
-
-    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css"/>
-
-    <?php elseif (isset($_GET["ip"]) && ($Domain == "Not valid")) :   ?>
-
-            <h2 style="color:red;">This Ip is Not Found</h2> 
-            <?php endif; ?> 
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous"><script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>

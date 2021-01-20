@@ -48,7 +48,11 @@ class weather_after implements ContainerInjectableInterface
         // Deal with the action and return a response.
         $protocol =  null;
         $host = null;
-
+        $arrIconNext = [];
+        $dateArrayNext = [];
+        $wrStatusArrayNext = [];
+        $weatherStatus = [];
+        $tempArrayNext = [];
         $title = "Ip validator";
         $page = $this->di->get("page");
         $request = $this->di->get("request");
@@ -80,15 +84,36 @@ class weather_after implements ContainerInjectableInterface
         $getData = $this->object->getData($weatherGet);
         // $getDataArray = $this->object->getDataArray($weatherGet2);
 
+        $getInfoDaily = $getData["daily"] ?? null;
 
+        if (is_array($getInfoDaily) || is_object($getInfoDaily)) {
+            foreach ($getInfoDaily as $value1) {
+                $weatherStatus = $value1["weather"][0]["main"] ?? null;
+                array_push($wrStatusArrayNext, $weatherStatus);
 
+                $date = date("d/m", $value1["dt"] ?? null);
+                array_push($dateArrayNext, $date);
 
+                $icon = $value1["weather"][0]["icon"] ?? null;
+                array_push($arrIconNext, $icon);
+
+                array_push($tempArrayNext, round($value1["temp"]["day"] ?? null, 0));
+            }
+        }
+        // var_dump($arrIconNext);
+
+        // var_dump($arrIconNext);
 
         $ip = $this->object->getCurrentIp($this->ipAddress);
         $Domain = $this->object->getDomain($this->ipAddress);
 
         $json = $this->ipJson($this->ipAddress, $this->object);
         $data['json'] = $json;
+        $data['arrIconNext'] = $arrIconNext;
+        $data['dateArrayNext'] = $dateArrayNext;
+
+        
+
         $data["ip"] = $ip;
         $data["protocol"] = $protocol;
         $data["host"] = $host;

@@ -83,8 +83,29 @@ class weather_befor implements ContainerInjectableInterface
         // $getData = $this->object->getData($weatherGet);
         $getDataArray = $this->object->getDataArray($weatherGet2);
 
+        
+        $arrIconPrevious = [];
+        $tempArrayPrevious= [];
+        $dateArrayPrevious = [];
+        $wrStatArrayPrev = [];
 
+        $getInfoPrevious = $getDataArray ?? null;
 
+        if (is_array($getInfoPrevious) || is_object($getInfoPrevious)) {
+            foreach ($getInfoPrevious as $value) {
+                $weatherStatus = $value["current"]["weather"][0]["main"] ?? null;
+                array_push($wrStatArrayPrev, $weatherStatus);
+
+                $timezonePrevious = $value["timezone"] ?? null;
+                $date = date("d/m", $value["hourly"][11]["dt"] ?? null);
+                array_push($dateArrayPrevious, $date);
+
+                array_push($tempArrayPrevious, round($value["current"]["temp"] ?? null, 0));
+
+                $icon = $value["current"]["weather"][0]["icon"] ?? null;
+                array_push($arrIconPrevious, $icon);
+            }
+        }
 
 
         $ip = $this->object->getCurrentIp($this->ipAddress);
@@ -92,6 +113,13 @@ class weather_befor implements ContainerInjectableInterface
 
         $json = $this->ipJson($this->ipAddress, $this->object);
         $data['json'] = $json;
+
+        $data['getInfoPrevious'] = $getInfoPrevious;
+
+        $data['arrIconPrevious'] = $arrIconPrevious;
+        $data['dateArrayPrevious'] = $dateArrayPrevious;
+
+
         $data["ip"] = $ip;
         $data["protocol"] = $protocol;
         $data["host"] = $host;
