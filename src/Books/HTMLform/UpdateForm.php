@@ -4,7 +4,7 @@ namespace Moody\Books\HTMLForm;
 
 use Anax\HTMLForm\FormModel;
 use Psr\Container\ContainerInterface;
-use Moody\Books\Books;
+use Moody\Books\Book;
 
 
 
